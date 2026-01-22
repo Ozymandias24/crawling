@@ -13,14 +13,15 @@ driver = webdriver.Chrome(options=options)
 
 
 arr = ["https://view.chunjae.co.kr/streamdocs/view/sd;streamdocsId=_VYOCsaUL5QFiqr6JM4t9JD7DAic-G8p6A2yBHEcMB0;isExternal=eQ;printUse=;enableDapSide=;pageView="]
+driver.get(arr[0])
 input("준비되었으면 엔터를 눌러주세요.")
 
 for url in arr:
     
-    driver.get(url)
+    
     wait = WebDriverWait(driver, 15)
-    wait.until(EC.presence_of_all_elements_located((By.TAG_NAME, "canvas")))
-    pages = driver.find_elements(By.TAG_NAME, "canvas")
+    wait.until(EC.presence_of_all_elements_located((By.TAG_NAME, "svg")))
+    pages = driver.find_elements(By.TAG_NAME, "svg")
     
 
     cnt = 1
